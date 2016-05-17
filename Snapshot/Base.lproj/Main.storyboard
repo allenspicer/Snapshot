@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Snapshot" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="886-xt-GQo">
+                                <rect key="frame" x="454" y="544" width="126" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="ChooseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4xt-xN-L6G"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jKx-Uz-bb3">
+                                <rect key="frame" x="20" y="28" width="560" height="432"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zku-Ry-J7X">
+                                <rect key="frame" x="170" y="470" width="260" height="29"/>
+                                <segments>
+                                    <segment title="Aspect Fit"/>
+                                    <segment title="Aspect Fill"/>
+                                    <segment title="Scale To Fill"/>
+                                </segments>
+                                <connections>
+                                    <action selector="contentModeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="iK0-er-HEe"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V15-Jp-26E">
+                                <rect key="frame" x="20" y="515" width="50" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="📷"/>
+                                <connections>
+                                    <action selector="takeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="II9-3e-q2t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V15-Jp-26E" firstAttribute="baseline" secondItem="886-xt-GQo" secondAttribute="baseline" id="F82-ug-7TN"/>
+                            <constraint firstItem="zku-Ry-J7X" firstAttribute="top" secondItem="jKx-Uz-bb3" secondAttribute="bottom" constant="10" id="HGD-iT-krh"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="trailing" secondItem="886-xt-GQo" secondAttribute="trailing" id="ICK-PK-yVh"/>
+                            <constraint firstAttribute="bottom" secondItem="886-xt-GQo" secondAttribute="bottom" constant="20" symbolic="YES" id="QWl-SS-qou"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qhi-Ht-VSx"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SH6-R7-KQC"/>
+                            <constraint firstItem="V15-Jp-26E" firstAttribute="top" secondItem="jKx-Uz-bb3" secondAttribute="bottom" constant="55" id="Vah-cS-G9O"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="leading" secondItem="V15-Jp-26E" secondAttribute="leading" id="ZUe-N5-Juo"/>
+                            <constraint firstItem="V15-Jp-26E" firstAttribute="top" secondItem="jKx-Uz-bb3" secondAttribute="bottom" constant="55" id="biS-rv-z8f"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="jtb-y5-SSB"/>
+                            <constraint firstItem="jKx-Uz-bb3" firstAttribute="centerX" secondItem="zku-Ry-J7X" secondAttribute="centerX" id="yE7-SM-0iB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Vah-cS-G9O"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="contentModeSegmentedControl" destination="zku-Ry-J7X" id="FCz-Jk-EX6"/>
+                        <outlet property="imageView" destination="jKx-Uz-bb3" id="fjY-ny-jrz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="289"/>
+        </scene>
+    </scenes>
+</document>
